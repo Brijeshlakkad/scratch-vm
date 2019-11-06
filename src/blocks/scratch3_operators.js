@@ -34,7 +34,8 @@ class Scratch3OperatorsBlocks {
             operator_mod: this.mod,
             operator_round: this.round,
             operator_mathop: this.mathop,
-            operator_square: this.square
+            operator_square: this.square,
+            operator_square_root: this.square_root
         };
     }
 
@@ -153,6 +154,13 @@ class Scratch3OperatorsBlocks {
 
     square(args){
       return Cast.toNumber(args.NUM) * Cast.toNumber(args.NUM);
+    }
+
+    square_root(args){
+      if(Cast.toNumber(args.NUM)>0){
+        return Math.sqrt(Cast.toNumber(args.NUM));
+      }
+      return 0;
     }
 }
 
