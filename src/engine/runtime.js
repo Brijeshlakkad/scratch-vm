@@ -2235,8 +2235,8 @@ class Runtime extends EventEmitter {
      * Emit whether blocks are being dragged over gui
      * @param {boolean} areBlocksOverGui True if blocks are dragged out of blocks workspace, false otherwise
      */
-    emitBlockDragUpdate (areBlocksOverGui) {
-        this.emit(Runtime.BLOCK_DRAG_UPDATE, areBlocksOverGui);
+    emitBlockDragUpdate (areBlocksOverGui, block) {
+        this.emit(Runtime.BLOCK_DRAG_UPDATE, areBlocksOverGui, block);
     }
 
     /**
@@ -2245,7 +2245,7 @@ class Runtime extends EventEmitter {
      * @param {string} topBlockId The original id of the top block being dragged
      */
     emitBlockEndDrag (blocks, topBlockId) {
-        this.emit(Runtime.BLOCK_DRAG_END, blocks, topBlockId);
+        this.emit(Runtime.BLOCK_DRAG_END, topBlockId, blocks);
     }
 
     /**

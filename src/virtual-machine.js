@@ -103,8 +103,8 @@ class VirtualMachine extends EventEmitter {
         this.runtime.on(Runtime.MONITORS_UPDATE, monitorList => {
             this.emit(Runtime.MONITORS_UPDATE, monitorList);
         });
-        this.runtime.on(Runtime.BLOCK_DRAG_UPDATE, areBlocksOverGui => {
-            this.emit(Runtime.BLOCK_DRAG_UPDATE, areBlocksOverGui);
+        this.runtime.on(Runtime.BLOCK_DRAG_UPDATE, (areBlocksOverGui, block) => {
+            this.emit(Runtime.BLOCK_DRAG_UPDATE, areBlocksOverGui, block);
         });
         this.runtime.on(Runtime.BLOCK_DRAG_END, (blocks, topBlockId) => {
             this.emit(Runtime.BLOCK_DRAG_END, blocks, topBlockId);
