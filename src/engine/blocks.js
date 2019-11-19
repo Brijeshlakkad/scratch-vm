@@ -322,6 +322,9 @@ class Blocks {
             for (let i = 0; i < newBlocks.length; i++) {
                 this.createBlock(newBlocks[i]);
             }
+            if(e.group != ""){
+              this.runtime.emitBlockCreate(newBlocks);
+            }
             break;
         }
         case 'change':

@@ -688,6 +688,14 @@ class Runtime extends EventEmitter {
     }
 
     /**
+     * Event name for reporting that a blocks has been created from loading a file
+     * @const {string}
+     */
+    static get BLOCK_CREATE () {
+        return 'BLOCK_CREATE';
+    }
+
+    /**
      * How rapidly we try to step threads by default, in ms.
      */
     static get THREAD_STEP_INTERVAL () {
@@ -2246,6 +2254,14 @@ class Runtime extends EventEmitter {
      */
     emitBlockEndDrag (blocks, topBlockId) {
         this.emit(Runtime.BLOCK_DRAG_END, topBlockId, blocks);
+    }
+
+    /**
+     * Emit event to indicate that the blocks has been created when loaded from file
+     * @param {Array.<object>} blocks The set of blocks dragged to the GUI
+     */
+    emitBlockCreate (blocks) {
+        this.emit(Runtime.BLOCK_CREATE, blocks);
     }
 
     /**

@@ -121,6 +121,9 @@ class VirtualMachine extends EventEmitter {
         this.runtime.on(Runtime.BLOCKS_NEED_UPDATE, () => {
             this.emitWorkspaceUpdate();
         });
+        this.runtime.on(Runtime.BLOCK_CREATE, (newBlocks) => {
+            this.emit(Runtime.BLOCK_CREATE, newBlocks);
+        });
         this.runtime.on(Runtime.TOOLBOX_EXTENSIONS_NEED_UPDATE, () => {
             this.extensionManager.refreshBlocks();
         });
